@@ -7,9 +7,11 @@ app = Flask(__name__)
 @app.route('/', methods=['GET', 'POST'])
 def render_pie():
     if request.method == 'POST':
-        print "POST"
+        print "POST", request, request.data, "No data", dir(request), request.form
+        print [request.files]
+        print [request.data]
     else:
-        pass
+        print request.method, request, request.data, "No data"
     return render_template("index.html")
 
 
