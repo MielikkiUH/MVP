@@ -1,0 +1,5 @@
+*.pyc
+data/*
+DS_Store
+MVU.egg-info
+*.egg-info
