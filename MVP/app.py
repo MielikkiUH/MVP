@@ -1,5 +1,9 @@
 from flask import Flask, jsonify, render_template, request
 import json
+from paths import data_path
+from os.path import join
+from itertools import chain
+
 
 app = Flask(__name__)
 
@@ -7,11 +11,12 @@ app = Flask(__name__)
 @app.route('/', methods=['GET', 'POST'])
 def render_pie():
     if request.method == 'POST':
-        print "POST", request, request.data, "No data", dir(request), request.form
-        print [request.files]
-        print [request.data]
+        for _file in list(chain(*request.files.listvalues())):
+            # saves ascii file but could read it instead
+            _file.save(join(data_path, _file.filename))
     else:
-        print request.method, request, request.data, "No data"
+        # Do any GET reqs here if needed
+        pass
     return render_template("index.html")
 
 
