@@ -75,10 +75,10 @@ function send_files($, files){
 }
 
 
-function files_string(){
+function files_string(id, txtid){
     // This function  builds a string of at most 3 files
     // that are queued up to be uploaded
-    files = document.getElementById("id_docfile").files;
+    files = document.getElementById(id).files;
     out_str = "";
     for (var i=0, file; file=files[i]; i++) {
         if (i > 3){
@@ -87,7 +87,7 @@ function files_string(){
         }
         out_str += file.name + ", ";
     }
-    document.getElementById("texto").innerHTML = out_str;
+    document.getElementById(txtid).innerHTML = out_str;
 }
 
 
@@ -102,8 +102,21 @@ function move_bar(width) {
 }
 
 
+function toArray(fileList) {
+    return Array.prototype.slice.call(fileList);
+}
+
+
+function catFiles(files1, files2){
+
+  return toArray(files1).concat(toArray(files2));
+}
+
+
 function up($){
-    files = document.getElementById("id_docfile").files;
+    files = document.getElementById("id_docfile2").files;// .concat(document.getElementById("id_docfile").files);
+    files = catFiles(files, document.getElementById("id_docfile3").files);
+    console.log(files)
     if( files.length == 0 ){
         alert("Please select files first, or use drag and drop");
     }else{

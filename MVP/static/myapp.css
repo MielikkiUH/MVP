@@ -9,8 +9,13 @@ input {
     width: 0%;
     height: 30px;
     background-color: green;
+    display: none;
 }
 #map {
-    height: 400px;
-     width: 400px
+    height: 500px;
+     width: 100%;
+ }
+ #dropZone{
+   height: 300px;
+   width: 300px%;
  }

@@ -17,9 +17,13 @@
     $( document ).ready(function() {
         var p = {{ path_bool| safe}}
 
-        document.getElementById("id_docfile").onchange = function() {
+        document.getElementById("id_docfile2").onchange = function() {
             // Show first 3 files to be uploaded
-            files_string();
+            files_string("id_docfile2", "touristic");
+        };
+        document.getElementById("id_docfile3").onchange = function() {
+            // Show first 3 files to be uploaded
+            files_string("id_docfile3", "electric");
         };
         // Get the drag-drop zone element
         var dropZone = document.getElementById('dropZone');
@@ -56,28 +60,38 @@
                 </div>
                 <div class="col-sm-6">
                     <!-- This is the drag and drop zone + image -->
-                    <img id="dropZone" src="/static/images/drag_drop.png">
+                    <img id="dropZone" src="/static/images/tree.jpg">
                     <!-- Form to upload files via browsing -->
                 </div>
             </div>
             <div class="row">
                 <div class="col-sm-5">
+                  <div>
+                   <label  class="btn btn-primary btn-file" for="id_docfile2"> Add Touristic Activity</label>
+                   <input type="file" id="id_docfile2" name="file" multiple>
+                 </div>
+                 <span id="touristic"></span>
                 </div>
 
                 <p id="test">
                     <!-- Prettyfy browse button with bootstrap -->
                     <div>
-                     <label  class="btn btn-primary btn-file" for="id_docfile"> Browse</label>
+                     <label  class="btn btn-primary btn-file" for="id_docfile" style="display: none;"> Browse</label>
                      <input type="file" id="id_docfile" name="file" multiple>
                    </div>
                     <!-- <label class="btn btn-primary btn-file" id="filer">
                     Browse
                     </label> -->
-                    <span id="texto">No file chosen</span>
+                    <span id="texto" style="display: none;">No file chosen</span>
                 </p>
             </div>
             <div class="row">
                 <div class="col-sm-5">
+                  <div>
+                   <label  class="btn btn-primary btn-file" for="id_docfile3"> Add Electric Supply</label>
+                   <input type="file" id="id_docfile3" name="file" multiple>
+                 </div>
+                 <span id="electric"></span>
                 </div>
                 <p><input onclick="up($);" class="btn btn-primary" type="button" value="Upload" /></p>
             </div>
