@@ -2,3 +2,5 @@
 DS_Store
 MVU.egg-info
 *.egg-info
+data/*
+
