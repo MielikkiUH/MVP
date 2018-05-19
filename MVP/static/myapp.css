@@ -10,3 +10,7 @@ input {
     height: 30px;
     background-color: green;
 }
+#map {
+    height: 400px;
+     width: 400px
+ }
